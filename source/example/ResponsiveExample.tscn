@@ -1,4 +1,10 @@
-[gd_scene format=1]
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://addons/responsive_controls/ResponsiveSection.gd" type="Script" id=1]
+[ext_resource path="res://addons/responsive_controls/icon_responsive_section.tex" type="Texture" id=2]
+[ext_resource path="res://addons/responsive_controls/ResponsiveSizing.gd" type="Script" id=3]
+[ext_resource path="res://addons/responsive_controls/icon_responsive_sizing.tex" type="Texture" id=4]
+[ext_resource path="res://example/PopulateItemList.gd" type="Script" id=5]
 
 [node name="Screen" type="Panel"]
 
@@ -9,8 +15,77 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
+margin/top = -1.0
+margin/right = 0.0
+margin/bottom = 1.0
+
+[node name="ResponsiveSection" type="Control" parent="."]
+
+anchor/right = 1
+anchor/bottom = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
 margin/top = 0.0
 margin/right = 0.0
+margin/bottom = 0.5
+script/script = ExtResource( 1 )
+__meta__ = {
+"_editor_icon": ExtResource( 2 )
+}
+
+[node name="SmallSizing" type="Control" parent="ResponsiveSection"]
+
+anchor/right = 1
+anchor/bottom = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.5
+script/script = ExtResource( 3 )
+__meta__ = {
+"_editor_icon": ExtResource( 4 )
+}
+minimumParentSize = Vector2( 0, 0 )
+isVisible = true
+
+[node name="BigSizing" type="Control" parent="ResponsiveSection"]
+
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 512.0
 margin/bottom = 0.0
+script/script = ExtResource( 3 )
+__meta__ = {
+"_editor_icon": ExtResource( 4 )
+}
+minimumParentSize = Vector2( 1024, 0 )
+isVisible = true
+
+[node name="ItemList" type="ItemList" parent="ResponsiveSection"]
+
+anchor/right = 1
+anchor/bottom = 1
+rect/min_size = Vector2( 496, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 8.0
+margin/top = 8.0
+margin/right = 8.0
+margin/bottom = 8.0
+script/script = ExtResource( 5 )
 
 
