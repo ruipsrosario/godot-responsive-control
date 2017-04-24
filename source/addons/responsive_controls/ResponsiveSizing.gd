@@ -13,6 +13,12 @@ func isEligible(size):
 
 # Applies this Responsive Sizing to the specified Control
 func applyTo(control):
+	if isVisible != control.is_visible():
+		if isVisible:
+			control.show()
+		else:
+			control.hide()
+	
 	control.set_h_size_flags(get_h_size_flags())
 	control.set_v_size_flags(get_v_size_flags())
 	control.set_scale(get_scale())
