@@ -41,8 +41,6 @@ func refreshSizings():
 
 # Sorts the Responsive Sizing children nodes from largest to smallest (prioritizing width)
 func sortSizingNodes(node1, node2):
-	var nodeSize1 = node1.get_size()
-	var nodeSize2 = node2.get_size()
-	if nodeSize1.width != nodeSize2.width:
-		return nodeSize1.width > nodeSize2.width
-	return nodeSize1.height > nodeSize2.height
+	if node1.minimumParentSize.width != node2.minimumParentSize.width:
+		return node1.minimumParentSize.width > node2.minimumParentSize.width
+	return node1.minimumParentSize.height > node2.minimumParentSize.height
