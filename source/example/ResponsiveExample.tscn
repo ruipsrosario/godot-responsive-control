@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=1]
 
-[ext_resource path="res://addons/responsive_controls/ResponsiveSection.gd" type="Script" id=1]
-[ext_resource path="res://addons/responsive_controls/icon_responsive_section.tex" type="Texture" id=2]
-[ext_resource path="res://addons/responsive_controls/ResponsiveSizing.gd" type="Script" id=3]
-[ext_resource path="res://addons/responsive_controls/icon_responsive_sizing.tex" type="Texture" id=4]
-[ext_resource path="res://example/common.fnt" type="BitmapFont" id=5]
-[ext_resource path="res://example/PopulateItemList.gd" type="Script" id=6]
+[ext_resource path="res://example/ItemEditLogic.gd" type="Script" id=1]
+[ext_resource path="res://addons/responsive_controls/ResponsiveSection.gd" type="Script" id=2]
+[ext_resource path="res://addons/responsive_controls/icon_responsive_section.tex" type="Texture" id=3]
+[ext_resource path="res://addons/responsive_controls/ResponsiveSizing.gd" type="Script" id=4]
+[ext_resource path="res://addons/responsive_controls/icon_responsive_sizing.tex" type="Texture" id=5]
+[ext_resource path="res://example/common.fnt" type="BitmapFont" id=6]
 [ext_resource path="res://example/labels.fnt" type="BitmapFont" id=7]
 
 [node name="Screen" type="Panel"]
@@ -20,9 +20,11 @@ margin/left = 0.0
 margin/top = -1.0
 margin/right = 0.0
 margin/bottom = 1.0
+script/script = ExtResource( 1 )
 
-[node name="ResponsiveSection" type="Control" parent="."]
+[node name="ItemListSection" type="Control" parent="."]
 
+editor/display_folded = true
 anchor/right = 1
 anchor/bottom = 2
 focus/ignore_mouse = false
@@ -33,12 +35,12 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 0.0
 margin/bottom = 0.5
-script/script = ExtResource( 1 )
+script/script = ExtResource( 2 )
 __meta__ = {
-"_editor_icon": ExtResource( 2 )
+"_editor_icon": ExtResource( 3 )
 }
 
-[node name="SmallSizing" type="Control" parent="ResponsiveSection"]
+[node name="SmallSizing" type="Control" parent="ItemListSection"]
 
 anchor/right = 1
 anchor/bottom = 2
@@ -50,14 +52,14 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 0.0
 margin/bottom = 0.5
-script/script = ExtResource( 3 )
+script/script = ExtResource( 4 )
 __meta__ = {
-"_editor_icon": ExtResource( 4 )
+"_editor_icon": ExtResource( 5 )
 }
 minimumParentSize = Vector2( 0, 0 )
 isVisible = true
 
-[node name="BigSizing" type="Control" parent="ResponsiveSection"]
+[node name="BigSizing" type="Control" parent="ItemListSection"]
 
 anchor/bottom = 1
 focus/ignore_mouse = false
@@ -68,14 +70,14 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 512.0
 margin/bottom = 0.0
-script/script = ExtResource( 3 )
+script/script = ExtResource( 4 )
 __meta__ = {
-"_editor_icon": ExtResource( 4 )
+"_editor_icon": ExtResource( 5 )
 }
 minimumParentSize = Vector2( 1024, 0 )
 isVisible = true
 
-[node name="ItemList" type="ItemList" parent="ResponsiveSection"]
+[node name="ItemList" type="ItemList" parent="ItemListSection"]
 
 anchor/right = 1
 anchor/bottom = 1
@@ -88,10 +90,9 @@ margin/left = 8.0
 margin/top = 8.0
 margin/right = 8.0
 margin/bottom = 8.0
-custom_fonts/font = ExtResource( 5 )
-script/script = ExtResource( 6 )
+custom_fonts/font = ExtResource( 6 )
 
-[node name="ResponsiveSection 2" type="Control" parent="."]
+[node name="ItemEditSection" type="Control" parent="."]
 
 anchor/top = 2
 anchor/right = 1
@@ -104,12 +105,12 @@ margin/left = 0.0
 margin/top = 0.5
 margin/right = 0.0
 margin/bottom = 0.0
-script/script = ExtResource( 1 )
+script/script = ExtResource( 2 )
 __meta__ = {
-"_editor_icon": ExtResource( 2 )
+"_editor_icon": ExtResource( 3 )
 }
 
-[node name="SmallSizing" type="Control" parent="ResponsiveSection 2"]
+[node name="SmallSizing" type="Control" parent="ItemEditSection"]
 
 anchor/top = 2
 anchor/right = 1
@@ -122,14 +123,14 @@ margin/left = 0.0
 margin/top = 0.5
 margin/right = 0.0
 margin/bottom = 0.0
-script/script = ExtResource( 3 )
+script/script = ExtResource( 4 )
 __meta__ = {
-"_editor_icon": ExtResource( 4 )
+"_editor_icon": ExtResource( 5 )
 }
 minimumParentSize = Vector2( 0, 0 )
 isVisible = true
 
-[node name="BigSizing" type="Control" parent="ResponsiveSection 2"]
+[node name="BigSizing" type="Control" parent="ItemEditSection"]
 
 anchor/right = 1
 anchor/bottom = 1
@@ -141,16 +142,15 @@ margin/left = 504.0
 margin/top = 0.0
 margin/right = 0.0
 margin/bottom = 0.0
-script/script = ExtResource( 3 )
+script/script = ExtResource( 4 )
 __meta__ = {
-"_editor_icon": ExtResource( 4 )
+"_editor_icon": ExtResource( 5 )
 }
 minimumParentSize = Vector2( 1024, 0 )
 isVisible = true
 
-[node name="ItemText" type="Control" parent="ResponsiveSection 2"]
+[node name="ItemText" type="Control" parent="ItemEditSection"]
 
-editor/display_folded = true
 anchor/right = 1
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -161,7 +161,7 @@ margin/top = 8.0
 margin/right = 8.0
 margin/bottom = 56.0
 
-[node name="Label" type="Label" parent="ResponsiveSection 2/ItemText"]
+[node name="Label" type="Label" parent="ItemEditSection/ItemText"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -179,7 +179,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="LineEdit" type="LineEdit" parent="ResponsiveSection 2/ItemText"]
+[node name="LineEdit" type="LineEdit" parent="ItemEditSection/ItemText"]
 
 anchor/right = 1
 anchor/bottom = 1
@@ -191,15 +191,14 @@ margin/left = 0.0
 margin/top = 20.0
 margin/right = 0.0
 margin/bottom = 2.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 placeholder/alpha = 0.6
 focus_mode = 2
 caret/caret_blink = false
 caret/caret_blink_speed = 0.65
 
-[node name="Description" type="Control" parent="ResponsiveSection 2"]
+[node name="Description" type="Control" parent="ItemEditSection"]
 
-editor/display_folded = true
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = false
@@ -211,7 +210,7 @@ margin/top = 56.0
 margin/right = 8.0
 margin/bottom = 8.0
 
-[node name="Label" type="Label" parent="ResponsiveSection 2/Description"]
+[node name="Label" type="Label" parent="ItemEditSection/Description"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -229,7 +228,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="LineEdit" type="TextEdit" parent="ResponsiveSection 2/Description"]
+[node name="TextEdit" type="TextEdit" parent="ItemEditSection/Description"]
 
 anchor/right = 1
 anchor/bottom = 1
@@ -241,7 +240,7 @@ margin/left = 0.0
 margin/top = 24.0
 margin/right = 0.0
 margin/bottom = 2.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 syntax_highlighting = false
 show_line_numbers = false
 highlight_all_occurrences = false
