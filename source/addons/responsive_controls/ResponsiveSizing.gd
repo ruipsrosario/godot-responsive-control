@@ -24,4 +24,4 @@ func applyTo(control):
 	control.set_scale(get_scale())
 	for margin in [ MARGIN_BOTTOM, MARGIN_TOP, MARGIN_RIGHT, MARGIN_LEFT ]:
 		control.set_anchor(margin, get_anchor(margin))
-		control.set_margin(margin, get_marginr(margin))
+		control.set_margin(margin, get_margin(margin))
