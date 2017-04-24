@@ -94,6 +94,7 @@ custom_fonts/font = ExtResource( 6 )
 
 [node name="ItemEditSection" type="Control" parent="."]
 
+editor/display_folded = true
 anchor/top = 2
 anchor/right = 1
 anchor/bottom = 1
@@ -247,5 +248,79 @@ highlight_all_occurrences = false
 caret/block_caret = false
 caret/caret_blink = false
 caret/caret_blink_speed = 0.65
+
+[node name="GithubSection" type="Control" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+script/script = ExtResource( 2 )
+__meta__ = {
+"_editor_icon": ExtResource( 3 )
+}
+
+[node name="SmallSizing" type="Control" parent="GithubSection"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+script/script = ExtResource( 4 )
+__meta__ = {
+"_editor_icon": ExtResource( 5 )
+}
+minimumParentSize = Vector2( 0, 0 )
+isVisible = false
+
+[node name="BigSizing" type="Control" parent="GithubSection"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+script/script = ExtResource( 4 )
+__meta__ = {
+"_editor_icon": ExtResource( 5 )
+}
+minimumParentSize = Vector2( 1024, 0 )
+isVisible = true
+
+[node name="LinkButton" type="LinkButton" parent="GithubSection"]
+
+anchor/left = 1
+anchor/right = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 154.0
+margin/top = 4.0
+margin/right = 2.0
+margin/bottom = 20.0
+custom_fonts/font = ExtResource( 6 )
+toggle_mode = false
+enabled_focus_mode = 0
+shortcut = null
+text = "Click here for GitHub"
+underline = 1
 
 

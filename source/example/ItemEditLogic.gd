@@ -5,6 +5,8 @@ var itemEditTextNode
 var itemEditDescriptionNode
 
 func _ready():
+	get_node("GithubSection/LinkButton").connect("button_up", self, "gotoGitHub")
+
 	itemListNode = get_node("ItemListSection/ItemList")
 	itemEditTextNode = get_node("ItemEditSection/ItemText/LineEdit")
 	itemEditDescriptionNode = get_node("ItemEditSection/Description/TextEdit")
@@ -31,3 +33,6 @@ func updateItemText(text):
 func updateItemDescription():
 	var index = itemListNode.get_selected_items()[0]
 	itemListNode.set_item_metadata(index, itemEditDescriptionNode.get_text())
+
+func gotoGitHub():
+	OS.shell_open("https://github.com/ruipsrosario/godot-responsive-control")
