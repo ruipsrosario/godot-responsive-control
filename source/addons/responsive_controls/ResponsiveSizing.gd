@@ -2,10 +2,10 @@ tool
 extends Control
 
 # Minimum size the parent Control must have in order to trigger this Responsive Sizing
-export(Vector2) var minimumParentSize
+export(Vector2) var minimumParentSize = Vector2()
 
 # Whether or not this Responsive Sizing is visible in the set size
-export(bool) var isVisible
+export(bool) var isVisible = true
 
 # Checks if this Responsive Sizing is eligible under the specified size
 func isEligible(size):
